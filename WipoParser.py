@@ -35,6 +35,8 @@ def getRegistrationDateOfDomaine(domaine_name) :
         return str(register_date[1])
     except timeout:
         return "Such domaine not found"
+    except ConnectionResetError:
+        return "Such domaine not found"
     except ConnectionRefusedError:
         return "Such domaine not found"
     except whois.parser.PywhoisError :
@@ -81,9 +83,9 @@ def getInformationFromSummaryPage(summary_page) :
 
 if __name__ == "__main__":
     case_prefix = 'D'
-    case_year = 2000
-    case_seq = 757
-    id =  757
+    case_year = 2016
+    case_seq = 283
+    id =  1774
     while True:
         id += 1
         case_seq += 1
